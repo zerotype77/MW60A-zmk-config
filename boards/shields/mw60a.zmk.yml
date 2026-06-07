@@ -1,0 +1,23 @@
+# This file was generated from a template. Edit it to match your keyboard.
+# See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files
+# for instructions.
+
+file_format: "1"
+id: mw60a
+name: mw60a
+type: shield
+
+# Set this to a URL that documents the keyboard.
+url: https://github.com/zerotype77/MW60A-zmk-config
+
+# Add any features your keyboard supports here.
+# See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files#features
+features:
+  - keys
+  - studio  # Remove this line if your keyboard will not support ZMK Studio
+
+requires:
+  - makerdiary_nrf52840_m2
+
+exposes:
+  - i2c_oled
