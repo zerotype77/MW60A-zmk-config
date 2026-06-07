@@ -1,6 +1,4 @@
-# This file was generated from a template. Edit it to match your keyboard.
-# See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files
-# for instructions.
+// 이 .zmk.yml 파일은 MW60A 키보드 펌웨어의 일부임
 
 file_format: "1"
 id: mw60a

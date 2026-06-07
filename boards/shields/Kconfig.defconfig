@@ -1,3 +1,6 @@
+# 이 config.deconfig 파일은 MW60A 키보드 펌웨어의 일부임
+
+
 if SHIELD_MW40A
 
 # 새로 만든 코드

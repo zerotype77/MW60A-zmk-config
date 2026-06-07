@@ -1,16 +1,12 @@
-// This file was generated from a template. Edit it to match your keyboard.
-// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
-// instructions.
+// 이 .overlay 파일은 MW60A 키보드 펌웨어의 일부임
 
 #include <dt-bindings/zmk/matrix_transform.h>
-// #include <dt-bindings/zmk/sensors.h>
-
-#include "tb7-layouts.dtsi"
-
+#include "mw60a-layouts.dtsi"
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>  
 
+// #include <dt-bindings/zmk/sensors.h>
 // &uart1 { status = "okay"; };
 
 

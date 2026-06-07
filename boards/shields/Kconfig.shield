@@ -1,3 +1,5 @@
+# 이 kconfig.shield 파일은 MW60A 키보드 펌웨어의 일부임
+
 if SHIELD_MW60A
 config ZMK_KEYBOARD_NAME
     default "mw60a"

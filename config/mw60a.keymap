@@ -1,13 +1,13 @@
-// This file was generated from a template. Edit it to match your keyboard.
-// See https://zmk.dev/docs/development/hardware-integration/new-shield for more instructions.
+// 이 .keymap 파일은 MW60A 키보드 펌웨어의 일부임
+
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define STRINGIFY(x) #x
-#define EXPAND_AND_STRINGIFY(x) STRINGIFY(x)
-#define MACRO(NAME, BINDINGS) 
+// #define STRINGIFY(x) #x
+// #define EXPAND_AND_STRINGIFY(x) STRINGIFY(x)
+// #define MACRO(NAME, BINDINGS) 
 
 // #include <dt-bindings/zmk/pointing.h>
 // #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
