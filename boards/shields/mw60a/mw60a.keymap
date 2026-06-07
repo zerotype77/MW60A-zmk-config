@@ -270,12 +270,6 @@ combos {
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
-        combo_delete {
-            timeout-ms = <100>;
-            key-positions = <27 28>;    // 'M' 키와 ',' 키의 위치 번호
-            bindings = <&kp DELETE>;    // Delete 발동
-            layers = <0>;               // 0번(기본) 레이어에서만 작동
-        };
 
         combo_sqt {
             timeout-ms = <100>;
