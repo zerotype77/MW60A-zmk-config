@@ -64,8 +64,45 @@ as: autoshift {
         <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
     };
 
-    // 일반 매크로 정의.
+
+// 일반 매크로 정의.
+
+// 현재 줄 위로 이동
+macro000: macro000 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LSHFT>,
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp UP>,
+                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LSHFT>;
+        };
+  };
+
+
+
+// 현재 줄 아래로 이동
 macro001: macro001 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LSHFT>,
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp DOWN>,
+                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LSHFT>;
+        };
+  };
+
+
+
+// 윈도우 데스크탑 감소
+macro002: macro002 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
@@ -79,6 +116,108 @@ macro001: macro001 {
         };
   };
 
+// 윈도우 데스크탑 증가
+macro003: macro003 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LGUI>,
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp RIGHT>,
+                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LGUI>;
+        };
+  };
+
+
+
+// ZZZ 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
+macro005: macro005 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp Z>,
+                <&macro_release &kp LCTRL>,
+        };
+  };
+
+
+// XXX 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
+macro005: macro005 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp X>,
+                <&macro_release &kp LCTRL>,
+        };
+  };
+
+
+// CCC 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
+macro006: macro006 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp C>,
+                <&macro_release &kp LCTRL>,
+        };
+  };
+
+
+
+// VVV 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
+macro007: macro007 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp V>,
+                <&macro_release &kp LCTRL>,
+        };
+  };
+
+
+
+// YYY 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
+macro008: macro008 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp Y>,
+                <&macro_release &kp LCTRL>,
+        };
+  };
+
+
+
+// DDD 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
+macro009: macro009 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp D>,
+                <&macro_release &kp LCTRL>,
+        };
+  };
 
 
 /*
