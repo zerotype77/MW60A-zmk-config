@@ -1,6 +1,10 @@
-if SHIELD_MW60A
+if SHIELD_MW40A
+
+# 새로 만든 코드
+
 config ZMK_KEYBOARD_NAME
-    default "mw60a"
+    default "MW40A"
+
 
 # ZMK Studio에 키맵 구조를 전달하기 위한 설정 활성화
 # config ZMK_STUDIO
@@ -10,6 +14,7 @@ config ZMK_KEYBOARD_NAME
 # 시프트 레지스터 사용을 위한 SPI 활성화, 줄 순서가 바뀌면 컴파일 에러.
 # config SPI
 #    default y
+    
 
 config ZMK_DISPLAY
     def_bool y
@@ -21,7 +26,7 @@ config DISPLAY
 config SSD1306
     def_bool y
 
-endif
+endif # SHIELD_MW40A
 
 
 
