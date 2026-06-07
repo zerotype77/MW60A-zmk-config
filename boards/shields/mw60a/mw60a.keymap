@@ -35,6 +35,17 @@ behaviors {
   };
 
 
+// Layer-Tap 을 위한 lt 정의 
+    behaviors {
+        lt: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Layer-Tap";
+        };
+    };
 
 // 오토시프트를 위한 매크로 정의. 키맵에서 &as Q 형태로 사용 가능
 macros {
@@ -134,7 +145,7 @@ macro003: macro003 {
 
 
 // ZZZ 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
-macro005: macro005 {
+macro004: macro004 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
@@ -251,7 +262,7 @@ combos {
         compatible = "zmk,combos";
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <2 3>;    // 'W' 키와 'E' 키의 물리적 위치 번호
+            key-positions = <2 3>;    	// 'W' 키와 'E' 키의 물리적 위치 번호
             bindings = <&kp ESC>;       // 발동될 키
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
@@ -259,16 +270,86 @@ combos {
         combo_enter {
             timeout-ms = <100>;
             key-positions = <18 19>;    // 'K' 키와 'L' 키의 위치 번호
-            bindings = <&kp ENTER>;      // Enter 발동
+            bindings = <&kp ENTER>;     // Enter 발동
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_backspace {
+            timeout-ms = <100>;
+            key-positions = <17 18>;    // 'L' 키와 'K' 키의 위치 번호
+            bindings = <&kp BSPC>;      // BACK SPACE 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_delete {
             timeout-ms = <100>;
             key-positions = <27 28>;    // 'M' 키와 ',' 키의 위치 번호
-            bindings = <&kp DELETE>;      // Delete 발동
+            bindings = <&kp DELETE>;    // Delete 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
+
+        combo_sqt {
+            timeout-ms = <100>;
+            key-positions = <8 9>;    	// 'i' 키와 'o' 키의 위치 번호
+            bindings = <&as SQT>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_minus {
+            timeout-ms = <100>;
+            key-positions = <7 8>; 	   	// 'u' 키와 'i' 키의 위치 번호
+            bindings = <&as MINUS>;     // MINUS 발동
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_delete {
+            timeout-ms = <100>;
+            key-positions = <26 27>;    // 'm' 키와 'm' 키의 위치 번호
+            bindings = <&kp DELETE>;    //  delete 발동
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_exc{
+            timeout-ms = <100>;
+            key-positions = <28 29>;    // '<' 키와 '>' 키의 위치 번호
+            bindings = <&kp LS(1)>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_grave{
+            timeout-ms = <100>;
+            key-positions = <1 2>;		// 'q' 키와 'w' 키의 위치 번호
+            bindings = <&as GRAVE>;     // 오토시프트+` GRAVE 발동
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_caps{
+            timeout-ms = <100>;
+            key-positions = <11 12>;   		// 'a' 키와 's' 키의 위치 번호
+            bindings = <&kp CAPSLOCK>;      // 오토시프트+ tab  발동 
+            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+
+        combo_tab{
+            timeout-ms = <100>;
+            key-positions = <22 23>;    	// 'x' 키와 'c' 키의 위치 번호 
+            bindings = <&as TAB>;      		// tab  발동 
+            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+
+        combo_layer1lock{
+            timeout-ms = <100>;
+            key-positions = <36 38>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
+            bindings = <&mo 1>;      		// Layer 1 고정.
+            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+
+        combo_layer0lock{
+            timeout-ms = <100>;
+            key-positions = <36 38>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
+            bindings = <&mo 0>;      		// Layer 0 고정. 
+            layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
+
     };
 
 
@@ -287,7 +368,7 @@ keymap {
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
      &as Z           &as X            	&as C           &as V            &as B        			&as N		&as M			&as COMMA  		&as DOT			&as SLASH
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &kp SPACE    	    	&mo 2		&kp CAPS        &mo 3			&as MINUS 		&as EQUAL
+     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 3 SPACE    	    	&mo 2		&kp CAPS        &mo 3			&as MINUS 		&as EQUAL
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
         >;
         /* 엔코더 정의 */ 
@@ -303,13 +384,13 @@ keymap {
 //            display-name = "Navigation";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-        &as F1           &as F2         &as F3          &as F4           &as F5             &trans  		&kp HOME  		&kp UP     		&kp END    		&kp PG_UP
+        &&kp LS(9)		&kp LS(10)		&macro000		&trans  		&trans				&&kp LS(3)		&kp HOME  		&kp UP     		&kp END    		&kp PG_UP
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &macro001      &trans          &trans           &trans         	&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
+        &trans        	&macro002  		&macro001		&macro003  		&trans         		&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &trans         	&trans       	&kp DEL     	&trans  	    &as LEFT_BRACKET &as RIGHT_BRACKET
+        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL     	&trans  	    &as LEFT_BRACKET &as RIGHT_BRACKET
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &kp ENTER      	&trans        	&trans      	&trans			&trans			&trans
+        &trans			&trans			&trans			&trans			&lt 2 SPACE			&trans        	&trans      	&trans			&trans			&trans
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
             >;
         /* 엔코더 정의 */
@@ -317,7 +398,6 @@ keymap {
 //                  &encoder_msc_down_up SCRL_LEFT  SCRL_RIGHT    &inc_dec_kp C_VOL_UP C_VOL_DN
 //            >;
 };
-
 
 
         // 2번 레이어        
@@ -335,18 +415,19 @@ keymap {
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯       
             >;
 
+
         // 3번 레이어        
         function_layer {
-//            display-name = "Numbers";
+//            display-name = "Function";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
         &kp F1           &kp F2         &kp F3          &kp F4           &kp F5				&kp F6          &kp F7          &kp F8          &kp F9          &kp F10
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &trans         	&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
+        &trans           &trans         &trans          &trans           &trans         	&trans           &trans         &trans          &trans           &trans
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &trans         	&trans       	&kp DEL     	&trans   		&as LEFT_BRACKET &as RIGHT_BRACKET
+        &trans           &trans         &trans          &trans           &trans         	&trans           &trans         &trans          &trans           &trans
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &kp ENTER      	&trans        	&trans      	&trans  		&kp F11			&kp F12
+        &trans           &trans         &trans          &trans           &trans     		&trans        	&trans      	&trans  		&kp F11			&kp F12
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯             
             >;
 
