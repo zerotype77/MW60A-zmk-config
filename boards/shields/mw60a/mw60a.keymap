@@ -49,7 +49,8 @@ behaviors {
 
 // 오토시프트를 위한 매크로 정의. 키맵에서 &as Q 형태로 사용 가능
 macros {
-    shifted: macro_shifted_kp {
+
+shifted: macro_shifted_kp {
       #binding-cells = <1>;
       label = "MACRO_SHIFTED_KP";
       compatible = "zmk,behavior-macro-one-param";
@@ -91,8 +92,6 @@ macro000: macro000 {
                 <&macro_release &kp LCTRL>,
                 <&macro_release &kp LSHFT>;
         };
-  };
-
 
 
 // 현재 줄 아래로 이동
@@ -108,8 +107,6 @@ macro001: macro001 {
                 <&macro_release &kp LCTRL>,
                 <&macro_release &kp LSHFT>;
         };
-  };
-
 
 
 // 윈도우 데스크탑 감소
@@ -125,7 +122,6 @@ macro002: macro002 {
                 <&macro_release &kp LCTRL>,
                 <&macro_release &kp LGUI>;
         };
-  };
 
 // 윈도우 데스크탑 증가
 macro003: macro003 {
@@ -140,7 +136,6 @@ macro003: macro003 {
                 <&macro_release &kp LCTRL>,
                 <&macro_release &kp LGUI>;
         };
-  };
 
 
 
@@ -155,7 +150,6 @@ macro004: macro004 {
                 <&macro_tap &kp Z>,
                 <&macro_release &kp LCTRL>,
         };
-  };
 
 
 // XXX 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
@@ -169,7 +163,6 @@ macro005: macro005 {
                 <&macro_tap &kp X>,
                 <&macro_release &kp LCTRL>,
         };
-  };
 
 
 // CCC 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
@@ -183,7 +176,6 @@ macro006: macro006 {
                 <&macro_tap &kp C>,
                 <&macro_release &kp LCTRL>,
         };
-  };
 
 
 
@@ -198,7 +190,6 @@ macro007: macro007 {
                 <&macro_tap &kp V>,
                 <&macro_release &kp LCTRL>,
         };
-  };
 
 
 
@@ -213,7 +204,6 @@ macro008: macro008 {
                 <&macro_tap &kp Y>,
                 <&macro_release &kp LCTRL>,
         };
-  };
 
 
 
@@ -229,7 +219,6 @@ macro009: macro009 {
                 <&macro_release &kp LCTRL>,
         };
   };
-
 
 /*
 // 엔코더 정의 예시. 필요에 따라 선택하여 사용.
@@ -349,7 +338,7 @@ combos {
             key-positions = <36 38>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
             bindings = <&mo 0>;      		// Layer 0 고정. 
             layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
-
+        };
     };
 
 
