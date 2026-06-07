@@ -148,7 +148,7 @@ macro004: macro004 {
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp Z>,
-                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LCTRL>;
         };
 
 
@@ -161,7 +161,7 @@ macro005: macro005 {
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp X>,
-                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LCTRL>;
         };
 
 
@@ -174,7 +174,7 @@ macro006: macro006 {
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp C>,
-                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LCTRL>;
         };
 
 
@@ -188,7 +188,7 @@ macro007: macro007 {
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp V>,
-                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LCTRL>;
         };
 
 
@@ -202,7 +202,7 @@ macro008: macro008 {
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp Y>,
-                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LCTRL>;
         };
 
 
@@ -216,7 +216,7 @@ macro009: macro009 {
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp D>,
-                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LCTRL>;
         };
   };
 
@@ -377,7 +377,7 @@ keymap {
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &trans        	&macro002  		&macro001		&macro003  		&trans         		&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL     	&trans  	    &as LEFT_BRACKET &as RIGHT_BRACKET
+        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL     	&kp INSERT 	    &as LEFT_BRACKET &as RIGHT_BRACKET
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &trans			&trans			&trans			&trans			&lt 2 SPACE			&trans        	&trans      	&trans			&trans			&trans
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
