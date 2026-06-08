@@ -5,10 +5,8 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     # support nice_oled and nice_epaper
-     - name: mctechnology17
+    - name: mctechnology17
       url-base: https://github.com/mctechnology17
-
-
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -17,6 +15,5 @@ manifest:
     - name: zmk-nice-oled
       remote: mctechnology17
       revision: main
-
   self:
     path: config  
