@@ -342,7 +342,7 @@ keymap {
     
     // 0번 레이어
     default_layer {
-//        display-name = "Base";
+        display-name = "Base";
         bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
      &as Q           &as W            	&as E           &as R            &as T   	          	&as Y       &as U           &as I           &as O 			&as SEMICOLON
@@ -364,7 +364,7 @@ keymap {
 
     // 1번 레이어        
         adjust_layer {
-//            display-name = "Navigation";
+            display-name = "Navigation";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
         &kp LS(9)		&kp LS(10)		&macro000		&trans  		&trans				&kp LS(3)		&kp HOME  		&kp UP     		&kp END    		&kp PG_UP
@@ -385,7 +385,7 @@ keymap {
 
         // 2번 레이어        
         number_layer {
-//            display-name = "Numbers";
+            display-name = "Numbers";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
         &kp N1           &kp N2         &kp N3          &kp N4           &kp N5				&kp N6          &kp N7          &kp N8          &kp N9          &kp N0
@@ -401,7 +401,7 @@ keymap {
 
         // 3번 레이어        
         function_layer {
-//            display-name = "Function";
+            display-name = "Function";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
         &kp F1           &kp F2         &kp F3          &kp F4           &kp F5				&kp F6          &kp F7          &kp F8          &kp F9          &kp F10
