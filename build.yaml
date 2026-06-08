@@ -3,5 +3,6 @@
  include:
    - board: nice_nano_v2
      shield: mw60a
+     shield: corne_left nice_oled
      snippet: studio-rpc-usb-uart
      cmake-args: -DCONFIG_ZMK_STUDIO=y
