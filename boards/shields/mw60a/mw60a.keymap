@@ -247,26 +247,26 @@ behaviors {
 
 
 
-
+// 시작 키는 0번(Q에 해당)으로 할당됨
 combos {
         compatible = "zmk,combos";
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <2 3>;    	// 'W' 키와 'E' 키의 물리적 위치 번호
+            key-positions = <1 2>;    	// 'W' 키와 'E' 키의 물리적 위치 번호
             bindings = <&kp ESC>;       // 발동될 키
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
         
         combo_enter {
             timeout-ms = <100>;
-            key-positions = <18 19>;    // 'K' 키와 'L' 키의 위치 번호
+            key-positions = <17 18>;    // 'K' 키와 'L' 키의 위치 번호
             bindings = <&kp ENTER>;     // Enter 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_backspace {
             timeout-ms = <100>;
-            key-positions = <17 18>;    // 'L' 키와 'K' 키의 위치 번호
+            key-positions = <16 17>;    // 'L' 키와 'K' 키의 위치 번호
             bindings = <&kp BSPC>;      // BACK SPACE 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
@@ -274,69 +274,69 @@ combos {
 
         combo_sqt {
             timeout-ms = <100>;
-            key-positions = <8 9>;    	// 'i' 키와 'o' 키의 위치 번호
+            key-positions = <7 8>;    	// 'i' 키와 'o' 키의 위치 번호
             bindings = <&as SQT>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_minus {
             timeout-ms = <100>;
-            key-positions = <7 8>; 	   	// 'u' 키와 'i' 키의 위치 번호
+            key-positions = <6 7>; 	   	// 'u' 키와 'i' 키의 위치 번호
             bindings = <&as MINUS>;     // MINUS 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_delete {
             timeout-ms = <100>;
-            key-positions = <26 27>;    // 'm' 키와 'm' 키의 위치 번호
+            key-positions = <25 26>;    // 'm' 키와 'm' 키의 위치 번호
             bindings = <&kp DELETE>;    //  delete 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_exc{
             timeout-ms = <100>;
-            key-positions = <28 29>;    // '<' 키와 '>' 키의 위치 번호
+            key-positions = <27 28>;    // '<' 키와 '>' 키의 위치 번호
             bindings = <&kp LS(1)>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_grave{
             timeout-ms = <100>;
-            key-positions = <1 2>;		// 'q' 키와 'w' 키의 위치 번호
+            key-positions = <0 1>;		// 'q' 키와 'w' 키의 위치 번호
             bindings = <&as GRAVE>;     // 오토시프트+` GRAVE 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_caps{
             timeout-ms = <100>;
-            key-positions = <11 12>;   		// 'a' 키와 's' 키의 위치 번호
+            key-positions = <10 11>;   		// 'a' 키와 's' 키의 위치 번호
             bindings = <&kp CAPSLOCK>;      // 오토시프트+ tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
         combo_tab{
             timeout-ms = <100>;
-            key-positions = <22 23>;    	// 'x' 키와 'c' 키의 위치 번호 
+            key-positions = <21 22>;    	// 'x' 키와 'c' 키의 위치 번호 
             bindings = <&as TAB>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
         combo_layer1lock{
             timeout-ms = <100>;
-            key-positions = <36 38>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo 1>;      		// Layer 1 고정.
+            key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
+            bindings = <&mo 2>;      		// Layer 1 고정.
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
         combo_layer0lock{
             timeout-ms = <100>;
-            key-positions = <36 38>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo 0>;      		// Layer 0 고정. 
+            key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
+            bindings = <&mo 1>;      		// Layer 0 고정. 
             layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
         };
         combo_powertoggle{
             timeout-ms = <100>;
-            key-positions = <5 6>;    	// 'T' 키와 'Y' 키의 위치 번호 
+            key-positions = <4 5>;    	// 'T' 키와 'Y' 키의 위치 번호 
             bindings = <&ext_power EP_TOG>;      		//   EP_TOG: 전원을 토글(켜져 있으면 끄고, 꺼져 있으면 켭니다).
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
@@ -349,7 +349,7 @@ combos {
 keymap {
     compatible = "zmk,keymap";
     
-    // 0번 레이어
+    // 0번 레이어    MO 1
     default_layer {
         display-name = "Base";
         bindings = <
@@ -371,7 +371,7 @@ keymap {
 };
 
 
-    // 1번 레이어        
+    // 1번 레이어   MO 2     
         adjust_layer {
             display-name = "Navigation";
             bindings = <
@@ -392,7 +392,7 @@ keymap {
 };
 
 
-        // 2번 레이어        
+        // 2번 레이어   MO 3     
         number_layer {
             display-name = "Numbers";
             bindings = <
