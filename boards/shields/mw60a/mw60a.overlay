@@ -29,9 +29,6 @@
         diode-direction = "col2row";
         wakeup-source;
 
-        // Replace these comments with the GPIO pins in the matrix.
-        // See https://zmk.dev/docs/development/hardware-integration/new-shield#shield-overlays
-        // gpio1 0 사망했거나, 번호 착오로 보인다.
 
 
 // &gpio1 06  허용 안됨. &gpio1 6 으로 명시 해야함.
@@ -110,6 +107,7 @@
 // 디스플레이 사용을 위한 I2C 핀 설정
 // SDA : P0.8
 // SCL : P0.6
+// OLED 128x64
 
 &pinctrl {
     i2c0_default: i2c0_default {
@@ -138,8 +136,8 @@
         oled_128x64: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
-        width = <128>;
-        height = <64>;
+        width = <128>;     			// X 횡축. 해상도에 따라 변경
+        height = <64>;				// Y 종축. 해상도에 따라 변경
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;

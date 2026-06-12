@@ -348,7 +348,7 @@ combos {
             key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
             bindings = <&mo 1>;      		// Layer 0 고정. 
             layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
-        };
+        };  
 
         combo_poweroff{
 //        combo_powertoggle{
@@ -421,17 +421,17 @@ keymap {
             display-name = "Numbers";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-        &kp N1           &kp N2         &kp N3          &kp N4           &kp N5				&kp N6          &kp N7          &kp N8          &kp N9          &kp N0
+        &as 1           &as 2         	&as 3			&as 4			&as 5 				&as 6			&as 7			&as 8			&as 9			&as 0
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &kp 3           &trans         &trans          &trans           &trans         	&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
+        &kp 3           &trans         &trans          &trans           &trans         		&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &trans         	&trans       	&kp DEL     	&trans   		&as LEFT_BRACKET &as RIGHT_BRACKET
+        &trans           &trans         &trans          &trans          &trans         		&trans       	&kp DEL     	&trans   		&as LEFT_BRACKET &as RIGHT_BRACKET
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &trans           &trans         &trans          &trans           &trans      	&trans        	&trans      	&trans  		&trans			&trans
+        &trans           &trans         &trans          &trans			&trans      		&trans        	&trans      	&trans  		&trans			 &trans
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯       
             >;
+ };
 
-};
         // 3번 레이어      MO 4          
         function_layer {
             display-name = "Function";
@@ -446,14 +446,14 @@ keymap {
         &trans           &trans         &trans          &trans           &trans     		&trans        	&trans      	&trans  		&kp F11			&kp F12
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯             
             >;
-
-
 };
+
 
         // 4번 레이어 / 예비1     MO 5  
         extra1 {
             status = "reserved";
         };
+
 
         // 5번 레이어 / 예비2     MO 6
         extra2 {
