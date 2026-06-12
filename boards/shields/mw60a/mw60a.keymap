@@ -31,9 +31,9 @@
 
 
 // app/include/dt-bindings/zmk/bt.h
-// &bt BT_CLR   선택한 프로필에 대해 쌍 호스트를 제거하기 위한 행동 결합
-// &bt BT_NXT   // &bt BT_PRV   다음 / 이전 프로필을 선택하는 행동 바인딩:
-// &bt BT_SEL 1   두 번째 프로파일을 선택하는 동작 결속(전달된 매개변수는 0 기반):
+// &bt BT_CLR   선택한 프로필에 대해 쌍 호스트를 제거하기 위한 비헤이비어 결합
+// &bt BT_NXT   // &bt BT_PRV   다음 / 이전 프로필을 선택하는 행동 바인딩
+// &bt BT_SEL 1   두 번째 프로파일을 선택하는 동작 결속(전달된 매개변수는 0 기반)
 
 
 
@@ -61,6 +61,7 @@ behaviors {
             display-name = "Layer-Tap";
         };
     };
+
 
 // 오토시프트를 위한 매크로 정의. 키맵에서 &as Q 형태로 사용 가능
 macros {
@@ -383,11 +384,10 @@ keymap {
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
      &as Z           &as X            	&as C           &as V            &as B        			&as N		&as M			&as COMMA  		&as DOT			&as SLASH
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 3 SPACE    	    	&mo 2		&mo 3        &mo 4			&as MINUS 		&as EQUAL
-//   &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 3 SPACE    	    	&mo 2		&kp CAPS        &mo 3			&as MINUS 		&as EQUAL
+     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 3 SPACE    	    	&mo 2		&kp CAPS        &mo 4			&as MINUS 		&as EQUAL
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
         >;
-        /* 엔코더 정의 */ 
+        /* 엔코더 정의 */  
 //        sensor-bindings = <
 // 테스트를 위해.             &encoder_msc_down_up SCRL_DOWN  SCRL_UP  &inc_dec_kp C_VOL_UP C_VOL_DN
 //              &inc_dec_kp C_VOL_UP C_VOL_DN  &inc_dec_kp C_VOL_UP C_VOL_DN
@@ -431,7 +431,7 @@ keymap {
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯       
             >;
 
-
+};
         // 3번 레이어      MO 4          
         function_layer {
             display-name = "Function";
@@ -450,28 +450,46 @@ keymap {
 
 };
 
+        // 4번 레이어 / 예비1     MO 5  
         extra1 {
             status = "reserved";
         };
+
+        // 5번 레이어 / 예비2     MO 6
         extra2 {
             status = "reserved";    
         };
+
+        // 6번 레이어 / 예비2     MO 7
         extra3 {
             status = "reserved";    
         };
+
+        // 7번 레이어 / 예비2     MO 8
         extra4 {
             status = "reserved";    
         };
+
+        // 8번 레이어 / 예비2     MO 9
         extra5 {
             status = "reserved";    
         };
+
+        // 9번 레이어 / 예비2     MO 10
         extra6 {
             status = "reserved";    
         };
-        extra7 {
-            status = "reserved";    
-        };        
 
-    };
+        // 10번 레이어 / 예비2     MO 11
+        extra6 {
+            status = "reserved";    
+        };
+
+        // 11번 레이어 / 예비2     MO 12
+        extra6 {
+            status = "reserved";    
+        };
+
+	};
 };
-};
+
