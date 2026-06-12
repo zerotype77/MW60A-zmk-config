@@ -481,15 +481,30 @@ keymap {
         };
 
         // 10번 레이어 / 예비2     MO 11
-        extra6 {
+        extra7 {
             status = "reserved";    
         };
 
         // 11번 레이어 / 예비2     MO 12
-        extra6 {
+        extra8 {
             status = "reserved";    
         };
 
+        // 12번 레이어 / 예비2     MO 13
+        extra9 {
+            status = "reserved";    
+        };
+
+        // 13번 레이어 / 예비2     MO 14
+        extra10 {
+            status = "reserved";    
+        };
+
+        // 14번 레이어 / 예비2     MO 15
+        extra11 {
+            status = "reserved";    
+        };
+		
 	};
 };
 
