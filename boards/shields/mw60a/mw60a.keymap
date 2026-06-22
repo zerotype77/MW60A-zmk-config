@@ -1,4 +1,4 @@
-// 이 .keymap 파일은 MW60A 키보드 펌웨어의 일부임
+// 이 .keymap 파일은 MW40A 키보드 펌웨어의 일부임
 
 
 #include <behaviors.dtsi>
@@ -47,16 +47,18 @@ behaviors {
       tapping-term-ms = <175>;
       bindings = <&shifted>, <&kp>;
     };
-  };
 
 
 // Layer-Tap 을 위한 lt 정의 
-    behaviors {
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+
+            // 💡 대문자 튀오나옴 현상 해결책 1: 같은 키를 연타할 때 오작동을 막는 옵션
+            quick-tap-ms = <150>;
+
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <170>;
             bindings = <&mo>, <&kp>;
             display-name = "Layer-Tap";
         };
@@ -74,6 +76,7 @@ shifted: macro_shifted_kp {
         <&macro_press &kp LSHFT>,
         <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
         <&macro_release &kp LSHFT>;
+
     };
 
 as: autoshift {
@@ -90,7 +93,15 @@ as: autoshift {
         <&macro_param_1to1>,
         <&macro_param_1to2>,
         <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
-    };
+
+			// 대문자 튀오나옴 현상
+            // 💡 해결책 2 (가장 확실함): 고속 롤링으로 인한 대문자 튐 완벽 방지
+            // 키보드가 완전히 '쉬고 있던 상태(Idle)'에서 처음 누른 키만 대문자(Hold) 판정을 허용합니다.
+            require-prior-idle-ms = <120>; 
+
+		};
+	
+
 
 
 // 일반 매크로 정의.
@@ -378,9 +389,9 @@ keymap {
         display-name = "Base";
         bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-     &as Q           &as W            	&as E           &as R            &as T   	          	&as Y       &as U           &as I           &as O 			&as SEMICOLON
+     &as Q           &as W            	&as E           &as R            &as T   	          	&as Y       &as U           &as I           &as O 			&as P
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &as A           &as S            	&as D           &as F            &as G       	    	&as H       &as J           &as K           &as L			&as P
+     &as A           &as S            	&as D           &as F            &as G       	    	&as H       &as J           &as K           &as L			&as SEMICOLON
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
      &as Z           &as X            	&as C           &as V            &as B        			&as N		&as M			&as COMMA  		&as DOT			&as SLASH
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
@@ -518,5 +529,7 @@ keymap {
         };
 		
 	};
+
+
 };
 

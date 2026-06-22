@@ -1,4 +1,5 @@
-// 이 .zmk.yml 파일은 MW60A 키보드 펌웨어의 일부임
+// 이 .zmk.yml 파일은 MW40A 키보드 펌웨어의 일부임
+// Repository 명칭 및 코드에 기재된 MW60A 라는 표현은, 최초 기획 단계에서 설계가 60키였기 때문임.
 
 file_format: "1"
 id: mw60a
