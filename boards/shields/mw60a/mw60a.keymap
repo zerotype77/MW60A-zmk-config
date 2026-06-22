@@ -272,6 +272,8 @@ behaviors {
 
 
 // 시작 키는 0번(Q에 해당)으로 할당됨
+// 추후, 콤보는 최대한 줄이고, 특수문자를 <NUMBERS>레이어의 오른손으로 할당을 넘기자.
+
 combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -382,7 +384,7 @@ combos {
 keymap {
     compatible = "zmk,keymap";
     
-    // 0번 레이어    MO 1
+    // BASE 레이어    MO 0
     default_layer {
         display-name = "Base";
         bindings = <
@@ -393,7 +395,7 @@ keymap {
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
      &as Z           &as X            	&as C           &as V            &as B        			&as N		&as M			&as COMMA  		&as DOT			&as SLASH
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 3 SPACE    	    	&mo 2		&lt 5 CAPS        &mo 4			&as MINUS 		&as EQUAL
+     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 2 SPACE    	    	&mo 1		&lt 3 CAPS        &mo 4			&as MINUS 		&as EQUAL
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
         >;
         /* 엔코더 정의 */  
@@ -403,7 +405,7 @@ keymap {
 //        >;
 };
 
-    // 1번 레이어   MO 2     
+    // 1번 레이어   MO 1 
         adjust_layer {
             display-name = "Navigation";
             bindings = <
@@ -424,7 +426,7 @@ keymap {
 };
 
 
-        // 2번 레이어   MO 3     
+        // 2번 레이어   MO 2  
         number_layer {
             display-name = "Numbers";
             bindings = <
@@ -440,7 +442,7 @@ keymap {
             >;
  };
 
-        // 3번 레이어      MO 4          
+        // 3번 레이어      MO 3
         function_layer {
             display-name = "Function";
             bindings = <
@@ -457,7 +459,7 @@ keymap {
 };
 
 
-        // 4번 레이어   MO 5 
+        // 4번 레이어   MO 4
         pointer_layer {
             display-name = "Pointer";
             bindings = <
