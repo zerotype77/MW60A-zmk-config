@@ -53,10 +53,6 @@ behaviors {
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-
-            // 💡 대문자 튀오나옴 현상 해결책 1: 같은 키를 연타할 때 오작동을 막는 옵션
-            quick-tap-ms = <150>;
-
             flavor = "tap-preferred";
             tapping-term-ms = <170>;
             bindings = <&mo>, <&kp>;
@@ -94,11 +90,13 @@ as: autoshift {
         <&macro_param_1to2>,
         <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
 
+            // 💡 대문자 튀오나옴 현상 해결책 1: 같은 키를 연타할 때 오작동을 막는 옵션
+            quick-tap-ms = <150>;
+
 			// 대문자 튀오나옴 현상
             // 💡 해결책 2 (가장 확실함): 고속 롤링으로 인한 대문자 튐 완벽 방지
             // 키보드가 완전히 '쉬고 있던 상태(Idle)'에서 처음 누른 키만 대문자(Hold) 판정을 허용합니다.
-            require-prior-idle-ms = <120>; 
-
+            // require-prior-idle-ms = <120>; 
 		};
 	
 
