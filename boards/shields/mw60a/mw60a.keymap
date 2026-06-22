@@ -38,7 +38,7 @@
 
 
 /{
-
+	
 behaviors {
     as_ht: autoshift_hold_tap {
       compatible = "zmk,behavior-hold-tap";
@@ -91,7 +91,7 @@ as: autoshift {
         <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
 
             // 💡 대문자 튀오나옴 현상 해결책 1: 같은 키를 연타할 때 오작동을 막는 옵션
-            quick-tap-ms = <150>;
+            // quick-tap-ms = <150>;
 
 			// 대문자 튀오나옴 현상
             // 💡 해결책 2 (가장 확실함): 고속 롤링으로 인한 대문자 튐 완벽 방지
