@@ -357,7 +357,7 @@ combos {
         combo_tab{
             timeout-ms = <100>;
             key-positions = <17 18>;    // 'L' 키와 ';' 키의 위치 번호
-            bindings = <AS(TAB>;      		// tab  발동 
+            bindings = <AS(TAB)>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
@@ -372,14 +372,14 @@ combos {
         combo_sqt {
             timeout-ms = <100>;
             key-positions = <7 8>;    	// 'i' 키와 'o' 키의 위치 번호
-            bindings = <AS(SQT>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
+            bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_minus {
             timeout-ms = <100>;
             key-positions = <6 7>; 	   	// 'u' 키와 'i' 키의 위치 번호
-            bindings = <AS(MINUS>;     // MINUS 발동
+            bindings = <AS(MINUS)>;     // MINUS 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -400,7 +400,7 @@ combos {
         combo_grave{
             timeout-ms = <100>;
             key-positions = <0 1>;		// 'q' 키와 'w' 키의 위치 번호
-            bindings = <AS(GRAVE>;     // 오토시프트+` GRAVE 발동
+            bindings = <AS(GRAVE)>;     // 오토시프트+` GRAVE 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -414,14 +414,14 @@ combos {
         combo_tab{
             timeout-ms = <100>;
             key-positions = <21 22>;    	// 'x' 키와 'c' 키의 위치 번호 
-            bindings = <AS(TAB>;      		// tab  발동 
+            bindings = <AS(TAB)>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
         combo_insert{
             timeout-ms = <100>;
             key-positions = <28 29>;    	// '.' 키와 '/' 키의 위치 번호 
-            bindings = <AS(TAB>;      		// INSERT  발동 
+            bindings = <AS(TAB)>;      		// INSERT  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
@@ -468,13 +468,13 @@ keymap {
         display-name = "Base";
         bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-     AS(Q           AS(W            	AS(E           AS(R            AS(T   	          	AS(Y       AS(U           AS(I           AS(O 			AS(P
+     AS(Q)           AS(W)            	AS(E)           AS(R)            AS(T)   	          	AS(Y)       	AS(U)           AS(I)			AS(O) 			AS(P)
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     AS(A           AS(S            	AS(D           AS(F            AS(G       	    	AS(H       AS(J           AS(K           AS(L			AS(SEMICOLON
+     AS(A)           AS(S)            	AS(D)           AS(F)            AS(G)       	    	AS(H)	   		AS(J)           AS(K)           AS(L)			AS(SEMICOLON)
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     AS(Z           AS(X            	AS(C           AS(V            AS(B        			AS(N		AS(M			AS(COMMA  		AS(DOT			AS(SLASH
+     AS(Z)           AS(X)            	AS(C)           AS(V)            AS(B)        			AS(N)			AS(M)			AS(COMMA)  		AS(DOT)			AS(SLASH)
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 2 SPACE    	    	&mo 1		&lt 3 CAPS        &mo 4			AS(MINUS 		AS(EQUAL
+     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 2 SPACE    	    	&mo 1		&lt 3 CAPS        &mo 4				AS(MINUS) 		AS(EQUAL)
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
         >;
         /* 엔코더 정의 */  
@@ -493,7 +493,7 @@ keymap {
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &trans        	&macro002  		&macro001		&macro003  		&trans         		&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL		AS(LEFT_BRACKET AS(RIGHT_BRACKET	&kp INSERT
+        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL		AS(LEFT_BRACKET) AS(RIGHT_BRACKET)	&kp INSERT
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &trans			&trans			&trans			&trans			&kp ENTER			&trans        	&trans      	&trans			&trans			&trans
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
@@ -510,7 +510,7 @@ keymap {
             display-name = "Numbers";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-        AS(N1  		AS(N2			AS(N3			AS(N4			AS(N5 				AS(N6			AS(N7			AS(N8			AS(N9			AS(N0
+        AS(N1)  		AS(N2)			AS(N3)			AS(N4)			AS(N5) 				AS(N6)			AS(N7)				AS(N8)			AS(N9)			AS(N0)
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &kp C_VOL_UP	&kp C_MUTE		&trans          &trans			&trans				&trans			&trans			&trans			&trans			&trans
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
@@ -611,4 +611,3 @@ keymap {
 
 
 };
-
