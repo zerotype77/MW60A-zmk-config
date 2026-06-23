@@ -12,6 +12,7 @@
 // #define MACRO(NAME, BINDINGS) 
 
 #include <dt-bindings/zmk/pointing.h>
+
 // #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
 // #define ZMK_POINTING_DEFAULT_SCRL_VAL 50    // default: 10
 // #includeのあとのあたりにスクロール量変更の定義を追記
@@ -38,17 +39,9 @@
 
 
 /{
-	
-behaviors {
-    as_ht: autoshift_hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "AUTOSHIFT_HOLD_TAP";
-      #binding-cells = <2>;
-      tapping-term-ms = <175>;
-      bindings = <&shifted>, <&kp>;
-    };
 
 
+    behaviors {
 // Layer-Tap 을 위한 lt 정의 
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -58,6 +51,63 @@ behaviors {
             bindings = <&mo>, <&kp>;
             display-name = "Layer-Tap";
         };
+
+
+// 오토시프트 오작동 해결을 위한 코드 수정
+        shifted: macro_shifted_kp {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+
+            bindings =
+                <&macro_press &kp LSHFT>,
+                <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
+                <&macro_release &kp LSHFT>;
+        };
+
+        as_ht: autoshift_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "AUTOSHIFT_HOLD_TAP";
+            #binding-cells = <2>;
+
+            flavor = "tap-preferred";
+
+            tapping-term-ms = <220>;
+
+            require-prior-idle-ms = <150>;
+
+            quick-tap-ms = <0>;
+
+            bindings = <&shifted>, <&kp>;
+        };
+
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "AUTO_SHIFT";
+            #binding-cells = <1>;
+
+            flavor = "tap-preferred";
+
+            tapping-term-ms = <220>;
+
+            require-prior-idle-ms = <150>;
+
+            quick-tap-ms = <0>;
+
+            bindings = <&shifted>, <&kp>;
+        };
+    };
+
+
+
+// 구 코드
+/*
+behaviors {
+    as_ht: autoshift_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "AUTOSHIFT_HOLD_TAP";
+      #binding-cells = <2>;
+      tapping-term-ms = <175>;
+      bindings = <&shifted>, <&kp>;
     };
 
 
@@ -100,8 +150,11 @@ as: autoshift {
 		};
 	
 
+*/   // 여기까지 구 코드
 
 
+
+macros {
 // 일반 매크로 정의.
 
 // 현재 줄 위로 이동
@@ -245,8 +298,10 @@ macro009: macro009 {
         };
   };
 
-/*
+
+
 // 엔코더 정의 예시. 필요에 따라 선택하여 사용.
+/*
 behaviors {
        encoder_msc_down_up: encoder_msc_down_up {
            compatible = "zmk,behavior-sensor-rotate";
