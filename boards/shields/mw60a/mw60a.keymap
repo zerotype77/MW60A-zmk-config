@@ -73,7 +73,7 @@
 			flavor = "tap-preferred";
 
 			tapping-term-ms = <250>;
-			require-prior-idle-ms = <150>;
+//			require-prior-idle-ms = <150>;
 
 			bindings = <&shifted>, <&kp>;
 		};
@@ -388,14 +388,14 @@ combos {
         combo_layer1lock{
             timeout-ms = <100>;
             key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo 2>;      		// Layer 1 고정.
+            bindings = <&mo 1>;      		// Layer 1 고정.
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
         combo_layer0lock{
             timeout-ms = <100>;
             key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo 1>;      		// Layer 0 고정. 
+            bindings = <&mo >;      		// Layer 0 고정. 
             layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
         };  
 
