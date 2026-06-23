@@ -54,48 +54,31 @@
 
 
 // 오토시프트 오작동 해결을 위한 코드 수정
-        shifted: macro_shifted_kp {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
 
-            bindings =
-                <&macro_press &kp LSHFT>,
-                <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
-                <&macro_release &kp LSHFT>;
-        };
+		shifted: macro_shifted_kp {
+			compatible = "zmk,behavior-macro-one-param";
+			#binding-cells = <1>;
 
-        as_ht: autoshift_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "AUTOSHIFT_HOLD_TAP";
-            #binding-cells = <2>;
+			bindings =
+				<&macro_press &kp LSHFT>,
+				<&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
+				<&macro_release &kp LSHFT>;
+		};
 
-            flavor = "tap-preferred";
+		as: auto_shift {
+			compatible = "zmk,behavior-hold-tap";
+			label = "AUTO_SHIFT";
+			#binding-cells = <1>;
 
-            tapping-term-ms = <220>;
+			flavor = "tap-preferred";
 
-            require-prior-idle-ms = <150>;
+			tapping-term-ms = <250>;
+			require-prior-idle-ms = <150>;
 
-            quick-tap-ms = <0>;
+			bindings = <&shifted>, <&kp>;
+		};
 
-            bindings = <&shifted>, <&kp>;
-        };
-
-        as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "AUTO_SHIFT";
-            #binding-cells = <1>;
-
-            flavor = "tap-preferred";
-
-            tapping-term-ms = <220>;
-
-            require-prior-idle-ms = <150>;
-
-            quick-tap-ms = <0>;
-
-            bindings = <&shifted>, <&kp>;
-        };
-    };
+	};
 
 
 
