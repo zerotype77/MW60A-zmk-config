@@ -38,10 +38,13 @@
 
 
 
+
+// ZMK 공식 홈에서 제시한 오토시프트
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
 /{
-
-
     behaviors {
+
 // Layer-Tap 을 위한 lt 정의 
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -52,8 +55,30 @@
             display-name = "Layer-Tap";
         };
 
+// ZMK 공식 홈에서 제시한 오토시프트 정의
+		as: auto_shift {
+			compatible = "zmk,behavior-hold-tap";
+			label = "AUTO_SHIFT";
+			#binding-cells = <2>;
+			tapping_term_ms = <135>;
+			quick_tap_ms = <0>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
 
-// 오토시프트 오작동 해결을 위한 코드 수정
+/*
+
+        behaviors {
+            as: auto_shift {
+                compatible = "zmk,behavior-hold-tap";
+                label = "AUTO_SHIFT";
+                #binding-cells = <2>;
+                tapping_term_ms = <135>;
+                quick_tap_ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+        };
 
 		shifted: macro_shifted_kp {
 			compatible = "zmk,behavior-macro-one-param";
@@ -78,6 +103,7 @@
 			bindings = <&shifted>, <&kp>;
 		};
 
+*/
 	};
 
 
@@ -328,6 +354,13 @@ combos {
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
+        combo_tab{
+            timeout-ms = <100>;
+            key-positions = <17 18>;    // 'L' 키와 ';' 키의 위치 번호
+            bindings = <AS(TAB>;      		// tab  발동 
+            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+
         combo_backspace {
             timeout-ms = <100>;
             key-positions = <16 17>;    // 'L' 키와 'K' 키의 위치 번호
@@ -339,20 +372,20 @@ combos {
         combo_sqt {
             timeout-ms = <100>;
             key-positions = <7 8>;    	// 'i' 키와 'o' 키의 위치 번호
-            bindings = <&as SQT>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
+            bindings = <AS(SQT>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_minus {
             timeout-ms = <100>;
             key-positions = <6 7>; 	   	// 'u' 키와 'i' 키의 위치 번호
-            bindings = <&as MINUS>;     // MINUS 발동
+            bindings = <AS(MINUS>;     // MINUS 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_delete {
             timeout-ms = <100>;
-            key-positions = <25 26>;    // 'm' 키와 'm' 키의 위치 번호
+            key-positions = <26 27>;    // 'm' 키와 '<' 키의 위치 번호
             bindings = <&kp DELETE>;    //  delete 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
@@ -367,7 +400,7 @@ combos {
         combo_grave{
             timeout-ms = <100>;
             key-positions = <0 1>;		// 'q' 키와 'w' 키의 위치 번호
-            bindings = <&as GRAVE>;     // 오토시프트+` GRAVE 발동
+            bindings = <AS(GRAVE>;     // 오토시프트+` GRAVE 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -381,9 +414,17 @@ combos {
         combo_tab{
             timeout-ms = <100>;
             key-positions = <21 22>;    	// 'x' 키와 'c' 키의 위치 번호 
-            bindings = <&as TAB>;      		// tab  발동 
+            bindings = <AS(TAB>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
+
+        combo_insert{
+            timeout-ms = <100>;
+            key-positions = <28 29>;    	// '.' 키와 '/' 키의 위치 번호 
+            bindings = <AS(TAB>;      		// INSERT  발동 
+            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+
 
         combo_layer1lock{
             timeout-ms = <100>;
@@ -395,7 +436,7 @@ combos {
         combo_layer0lock{
             timeout-ms = <100>;
             key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo >;      		// Layer 0 고정. 
+            bindings = <&mo 0>;      		// Layer 0 고정. 
             layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
         };  
 
@@ -427,13 +468,13 @@ keymap {
         display-name = "Base";
         bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-     &as Q           &as W            	&as E           &as R            &as T   	          	&as Y       &as U           &as I           &as O 			&as P
+     AS(Q           AS(W            	AS(E           AS(R            AS(T   	          	AS(Y       AS(U           AS(I           AS(O 			AS(P
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &as A           &as S            	&as D           &as F            &as G       	    	&as H       &as J           &as K           &as L			&as SEMICOLON
+     AS(A           AS(S            	AS(D           AS(F            AS(G       	    	AS(H       AS(J           AS(K           AS(L			AS(SEMICOLON
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &as Z           &as X            	&as C           &as V            &as B        			&as N		&as M			&as COMMA  		&as DOT			&as SLASH
+     AS(Z           AS(X            	AS(C           AS(V            AS(B        			AS(N		AS(M			AS(COMMA  		AS(DOT			AS(SLASH
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 2 SPACE    	    	&mo 1		&lt 3 CAPS        &mo 4			&as MINUS 		&as EQUAL
+     &kp LEFT_ALT    &kp LEFT_GUI 		&kp LCTRL       &kp LSHFT       &lt 2 SPACE    	    	&mo 1		&lt 3 CAPS        &mo 4			AS(MINUS 		AS(EQUAL
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
         >;
         /* 엔코더 정의 */  
@@ -448,11 +489,11 @@ keymap {
             display-name = "Navigation";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-        &kp LS(9)		&kp LS(10)		&macro000		&trans  		&trans				&kp LS(3)		&kp HOME  		&kp UP     		&kp END    		&kp PG_UP
+        &kp LS(9)		&kp LS(10)		&macro000		&trans  		&trans				&kp LS(N3)		&kp HOME  		&kp UP     		&kp END    		&kp PG_UP
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &trans        	&macro002  		&macro001		&macro003  		&trans         		&kp BSPC        &kp LEFT    	&kp DOWN        &kp RIGHT		&kp PG_DN      
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
-        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL		&as LEFT_BRACKET &as RIGHT_BRACKET	&kp INSERT
+        &macro004		&macro005		&macro006		&macro007		&trans      	   	&macro009		&kp DEL		AS(LEFT_BRACKET AS(RIGHT_BRACKET	&kp INSERT
 // ├───────────────┼────────────────┼───────────────┼───────────────┼────────────────┬───────────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &trans			&trans			&trans			&trans			&kp ENTER			&trans        	&trans      	&trans			&trans			&trans
 // ╰───────────────┴────────────────┴───────────────┴───────────────┴────────────────┴───────────────────┴───────────────┴───────────────┴─────────────────┴──────────────────╯
@@ -469,7 +510,7 @@ keymap {
             display-name = "Numbers";
             bindings = <
 // ╭───────────────┬────────────────┬───────────────┬───────────────┬─────────────╮      ╭───────────────┬───────────────┬───────────────┬─────────────────┬──────────────────╮
-        &as N1  		&as N2			&as N3			&as N4			&as N5 				&as N6			&as N7			&as N8			&as N9			&as N0
+        AS(N1  		AS(N2			AS(N3			AS(N4			AS(N5 				AS(N6			AS(N7			AS(N8			AS(N9			AS(N0
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
         &kp C_VOL_UP	&kp C_MUTE		&trans          &trans			&trans				&trans			&trans			&trans			&trans			&trans
 // ├───────────────┼────────────────┼───────────────┼───────────────┼─────────────┤      ├───────────────┼───────────────┼───────────────┼─────────────────┼──────────────────┤
