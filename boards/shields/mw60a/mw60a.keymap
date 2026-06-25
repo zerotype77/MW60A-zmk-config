@@ -354,7 +354,7 @@ combos {
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
-        combo_tab{
+        combo_tab1{
             timeout-ms = <100>;
             key-positions = <17 18>;    // 'L' 키와 ';' 키의 위치 번호
             bindings = <AS(TAB)>;      		// tab  발동 
@@ -411,7 +411,7 @@ combos {
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
-        combo_tab{
+        combo_tab2{
             timeout-ms = <100>;
             key-positions = <21 22>;    	// 'x' 키와 'c' 키의 위치 번호 
             bindings = <AS(TAB)>;      		// tab  발동 
