@@ -39,14 +39,12 @@
 
 
 
-// ZMK 공식 홈에서 제시한 오토시프트
-#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+// ZMK 공식 홈에서 제시한 오토시프트 사용을 위한 정의
+// #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
 
 /{
     behaviors {
-
-
-
 
 
 // Layer-Tap 을 위한 lt 정의 
@@ -376,7 +374,7 @@ combos {
         combo_tab1{
             timeout-ms = <100>;
             key-positions = <17 18>;    // 'L' 키와 ';' 키의 위치 번호
-            bindings = <AS(TAB)>;      		// tab  발동 
+            bindings = <&as_ht LS(TAB) TAB>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
@@ -391,14 +389,14 @@ combos {
         combo_sqt {
             timeout-ms = <100>;
             key-positions = <7 8>;    	// 'i' 키와 'o' 키의 위치 번호
-            bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
+            bindings = <&as_ht LS(SQT) SQT>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
         combo_minus {
             timeout-ms = <100>;
             key-positions = <6 7>; 	   	// 'u' 키와 'i' 키의 위치 번호
-            bindings = <AS(MINUS)>;     // MINUS 발동
+            bindings = <&as_ht LS(MINUS) MINUS>;     // MINUS 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -419,7 +417,7 @@ combos {
         combo_grave{
             timeout-ms = <100>;
             key-positions = <0 1>;		// 'q' 키와 'w' 키의 위치 번호
-            bindings = <AS(GRAVE)>;     // 오토시프트+` GRAVE 발동
+            bindings = <&as_ht LS(GRAVE) GRAVE>;     // 오토시프트+` GRAVE 발동
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -433,14 +431,14 @@ combos {
         combo_tab2{
             timeout-ms = <100>;
             key-positions = <21 22>;    	// 'x' 키와 'c' 키의 위치 번호 
-            bindings = <AS(TAB)>;      		// tab  발동 
+            bindings = <&as_ht LS(TAB) TAB>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
         combo_insert{
             timeout-ms = <100>;
             key-positions = <28 29>;    	// '.' 키와 '/' 키의 위치 번호 
-            bindings = <AS(TAB)>;      		// INSERT  발동 
+            bindings = <&as_ht LS(TAB) TAB>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
