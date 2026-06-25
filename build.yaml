@@ -1,4 +1,4 @@
-# 이 build.yaml 파일은 MW60A 키보드 펌웨어의 일부임
+# 이 build.yaml 파일은 MW40A 키보드 펌웨어의 일부임
 ---
  include:
    - board: nice_nano_v2
