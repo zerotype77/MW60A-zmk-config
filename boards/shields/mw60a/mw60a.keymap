@@ -89,7 +89,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "AUTO_SHIFT";
 			#binding-cells = <2>;
-			tapping_term_ms = <180>;
+			(tapping_term_ms = <180>;
 			quick_tap_ms = <0>;
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
@@ -359,7 +359,7 @@ combos {
         combo_esc {
             timeout-ms = <50>;
             key-positions = <1 2>;    	// 'W' 키와 'E' 키의 물리적 위치 번호
-            bindings = <&kp ESC>;       // 발동될 키
+            bindings = <&kp ESC>;       // 발동될 키: esc
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
         
@@ -409,7 +409,7 @@ combos {
         combo_exc{
             timeout-ms = <100>;
             key-positions = <27 28>;    // '<' 키와 '>' 키의 위치 번호
-            bindings = <&kp LS(1)>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
+            bindings = <&kp EXCLAMATION>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -423,7 +423,7 @@ combos {
         combo_caps{
             timeout-ms = <100>;
             key-positions = <10 11>;   		// 'a' 키와 's' 키의 위치 번호
-            bindings = <&kp CAPSLOCK>;      // 오토시프트+ tab  발동 
+            bindings = <&kp CAPSLOCK>;      // CapsLock  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
@@ -523,7 +523,7 @@ keymap {
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
         &trans        	&macro002  			&macro001			&macro003  			&trans         			&kp BSPC        	&kp LEFT    		&kp DOWN        	&kp RIGHT			&kp PG_DN      
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-        &macro004		&macro005			&macro006			&macro007			&trans      	   		&macro009			&kp DEL				AS(LEFT_BRACKET) 	AS(RIGHT_BRACKET) 	&kp INSERT
+        &macro004		&macro005			&macro006			&macro007			&trans      	   		&macro009			&kp DEL				&trans				&trans			 	&kp INSERT
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬─────────────────────┬─────────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
 		&trans			&trans				&trans				&trans				&kp ENTER				&trans        		&trans      		&trans				&trans				&trans
 // ╰───────────────────┴───────────────────┴───────────────────┴───────────────────┴─────────────────────┴─────────────────────┴───────────────────┴───────────────────┴───────────────────┴───────────────────╯
@@ -551,14 +551,14 @@ keymap {
             display-name = "Numbers";
             bindings = <
 // ╭───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────╮   ╭───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────╮
-	AS(N1) 				AS(N2) 				AS(N3) 				AS(N4) 				AS(N5) 					AS(N6) 				AS(N7) 				AS(N8) 				AS(N9) 				AS(N0)
+	AS(N1) 				AS(N2) 				AS(N3) 				AS(N4) 				AS(N5) 					AS(N6) 				AS(N7) 				AS(N8) 				AS(N9) 				AS(GRAVE)
 	//	&as_ht LS(N1) N1	&as_ht LS(N2) N2	&as_ht LS(N3) N3	&as_ht LS(N4) N4	&as_ht LS(N5) N5		&as_ht LS(N6) N6	&as_ht LS(N7) N7	&as_ht LS(N8) N8	&as_ht LS(N9) N9	&as_ht LS(N0) N0	
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-	&kp C_VOL_UP		&kp C_MUTE			&trans          	&trans				&trans					&trans				&trans				&trans				&trans				&trans
+	AS(TAB)				&trans				&trans          	&kp C_MUTE			&kp C_VOL_UP			&trans				&trans				&trans				&trans				AS(BACKSLASH)
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-	&kp C_VOL_DN		&kp C_PLAY_PAUSE	&trans				&trans				&trans					&trans				&trans				&trans				&trans				&trans
+	&trans				&trans				&trans				&kp C_PLAY_PAUSE	&kp C_VOL_DN			&trans				&trans				AS(LEFT_BRACKET) 	AS(RIGHT_BRACKET)	AS(SQT)
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬─────────────────────┬─────────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-	&trans         		&trans          	&trans				&trans      		&trans	        		&trans      		&trans  			&trans			 	&trans				&trans
+	&trans         		&trans          	&trans				&trans      		&trans	        		&trans      		&kp RIGHT_ALT 		&trans			 	&trans				&trans
 // ╰───────────────────┴───────────────────┴───────────────────┴───────────────────┴─────────────────────┴─────────────────────┴───────────────────┴───────────────────┴───────────────────┴───────────────────╯
             >;
  };
