@@ -441,21 +441,6 @@ combos {
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
-
-        combo_layer1lock{
-            timeout-ms = <100>;
-            key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo 1>;      		// Layer 1 고정.
-            layers = <0>;               	// 0번(기본) 레이어에서만 작동
-        };
-
-        combo_layer0lock{
-            timeout-ms = <100>;
-            key-positions = <35 37>;    	// '스페이스' 키와 '레이어3' 키의 위치 번호 
-            bindings = <&mo 0>;      		// Layer 0 고정. 
-            layers = <1>;               	// 1번(기본) 레이어에서만 작동. 누를 때 마다 토글되도록.
-        };  
-
         combo_poweroff{
 //        combo_powertoggle{
             timeout-ms = <100>;
@@ -466,7 +451,7 @@ combos {
         };
         combo_poweron{
             timeout-ms = <100>;
-            key-positions = <5 6>;    	// 'Y' 키와 'U' 키의 위치 번호 
+            key-positions = <14 15>;    	// 'Y' 키와 'U' 키의 위치 번호 
             bindings = <&ext_power EXT_POWER_ON_CMD>;      		//   전원을 켠다.
 //            layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
