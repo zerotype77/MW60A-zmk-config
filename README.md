@@ -1,6 +1,6 @@
-# This is MW60A keyboard ZMK repositorie
+# This is MW40A keyboard ZMK repositorie
 
-## keyBoard model code: MW60A
+## keyBoard model code: MW40A
   (cherry MX, Wireless, 40key Alice layout)
 
 ## keyboard name: 작가가 타건음을 숨김: 에피소드1
