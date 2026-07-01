@@ -38,8 +38,6 @@
 // &bt BT_SEL 1   두 번째 프로파일을 선택하는 동작 결속(전달된 매개변수는 0 기반)
 
 
-
-
 // ZMK 공식 홈에서 제시한 오토시프트 사용을 위한 정의
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
@@ -71,6 +69,7 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
+	};
 
 
 
@@ -339,14 +338,14 @@ combos {
         combo_poweroff{
 //        combo_powertoggle{
             timeout-ms = <100>;
-            key-positions = <4 5>;    	// 'T' 키와 'Y' 키의 위치 번호 
+            key-positions = <9 39>;    	// P 키와 = 키의 위치 번호
             bindings = <&ext_power EXT_POWER_OFF_CMD>;      		//   전원을 끈다
 //            bindings = <&ext_power EP_TOG>;      		//   EP_TOG: 전원을 토글(켜져 있으면 끄고, 꺼져 있으면 켭니다).
 //            layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
         combo_poweron{
             timeout-ms = <100>;
-            key-positions = <24 25>;    	// 'B' 키와 'N' 키의 위치 번호 (전에 G, H 였으나, 한글 '호'자 쓰는 과정에서 콤보가 작동하는 오류가 발생하여 변경.
+            key-positions = <9 38>;     	// P 키와 - 키의 위치 번호
             bindings = <&ext_power EXT_POWER_ON_CMD>;      		//   전원을 켠다.
 //            layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
