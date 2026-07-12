@@ -245,13 +245,13 @@ behaviors {
 // 추후, 콤보는 최대한 줄이고, 특수문자를 <NUMBERS>레이어의 오른손으로 할당을 넘기자.
 
 combos {
+
         combo_tab1{
             timeout-ms = <100>;
             key-positions = <23 33>;    // 'V' 키와 'shift' 키의 위치 번호
             bindings = <AS(TAB)>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
-
 
         combo_sqt{
             timeout-ms = <100>;
