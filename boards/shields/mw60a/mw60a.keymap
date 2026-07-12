@@ -248,6 +248,7 @@ behaviors {
 // 시작 키는 0번(Q에 해당)으로 할당됨
 // 추후, 콤보는 최대한 줄이고, 특수문자를 <NUMBERS>레이어의 오른손으로 할당을 넘기자.
 
+/*  영타에서 빈번한 오타 발생에  따라 콤보를 줄이기 위함.
 combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -278,14 +279,6 @@ combos {
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
-
-        combo_sqt {
-            timeout-ms = <100>;
-            key-positions = <7 8>;    	// 'i' 키와 'o' 키의 위치 번호
-            bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
-            layers = <0>;               // 0번(기본) 레이어에서만 작동
-        };
-
         combo_minus {
             timeout-ms = <100>;
             key-positions = <6 7>; 	   	// 'u' 키와 'i' 키의 위치 번호
@@ -297,13 +290,6 @@ combos {
             timeout-ms = <100>;
             key-positions = <26 27>;    // 'm' 키와 '<' 키의 위치 번호
             bindings = <&kp DELETE>;    //  delete 발동
-            layers = <0>;               // 0번(기본) 레이어에서만 작동
-        };
-
-        combo_exc{
-            timeout-ms = <100>;
-            key-positions = <27 28>;    // '<' 키와 '>' 키의 위치 번호
-            bindings = <&kp EXCLAMATION>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
         };
 
@@ -328,6 +314,22 @@ combos {
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
 
+		*/
+
+        combo_sqt {
+            timeout-ms = <100>;
+            key-positions = <18 19>;    	// 'k' 키와 ';' 키의 위치 번호
+            bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_exc{
+            timeout-ms = <100>;
+            key-positions = <27 28>;    // '<' 키와 '>' 키의 위치 번호
+            bindings = <&kp EXCLAMATION>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+		
         combo_insert{
             timeout-ms = <100>;
             key-positions = <28 29>;    	// '.' 키와 '/' 키의 위치 번호 
@@ -398,13 +400,13 @@ keymap {
             bindings = <
 
 // ╭───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────╮   ╭───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────╮
-        &kp LS(N9)		&kp LS(N0)			&macro000			&trans  			&trans					&kp LS(N3)			&kp HOME  			&kp UP     			&kp END    			&kp PG_UP
+        &kp ESC			AS(GRAVE)			&macro000			&trans  			&trans					&kp LS(N3)			&kp HOME  			&kp UP     			&kp END    			&kp PG_UP
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-        &trans        	&macro002  			&macro001			&macro003  			&trans         			&kp BSPC        	&kp LEFT    		&kp DOWN        	&kp RIGHT			&kp PG_DN      
+        &trans        	&macro002  			&macro001			&macro003  			&trans         			&kp ENTER        	&kp LEFT    		&kp DOWN        	&kp RIGHT			&kp PG_DN      
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-        &macro004		&macro005			&macro006			&macro007			&trans      	   		&macro009			&kp DEL				&kp ENTER			&kp K_APP		 	&kp INSERT
+        &macro004		&macro005			&macro006			&macro007			&trans      	   		&macro009			&kp BSPC			&kp DEL				&kp INSERT		 	&kp TAB
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬─────────────────────┬─────────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-		&trans			&trans				&trans				&trans				&trans					&trans        		&trans      		&trans				&trans				&trans
+		&trans			&trans				&trans				&trans				&trans					&trans        		&trans      		&trans				&trans				&kp K_APP
 // ╰───────────────────┴───────────────────┴───────────────────┴───────────────────┴─────────────────────┴─────────────────────┴───────────────────┴───────────────────┴───────────────────┴───────────────────╯
 /*
 // ╭───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────╮   ╭───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────╮
@@ -433,9 +435,9 @@ keymap {
 	AS(N1) 				AS(N2) 				AS(N3) 				AS(N4) 				AS(N5) 					AS(N6) 				AS(N7) 				AS(N8) 				AS(N9) 				AS(N0)
 	//	&as_ht LS(N1) N1	&as_ht LS(N2) N2	&as_ht LS(N3) N3	&as_ht LS(N4) N4	&as_ht LS(N5) N5		&as_ht LS(N6) N6	&as_ht LS(N7) N7	&as_ht LS(N8) N8	&as_ht LS(N9) N9	&as_ht LS(N0) N0	
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-	AS(TAB)				&trans				&trans          	&kp C_MUTE			&kp C_VOL_UP			&trans				&trans				&trans				&trans				AS(BACKSLASH)
+	&kp CAPS			&trans				&trans          	&kp C_MUTE			&kp C_VOL_UP			&trans				&trans				&trans				&trans				AS(SQT)
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤   ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
-	AS(GRAVE)			&trans				&trans				&kp C_PLAY_PAUSE	&kp C_VOL_DN			&trans				&trans				AS(LEFT_BRACKET) 	AS(RIGHT_BRACKET)	AS(SQT)
+	&trans				&trans				&trans				&kp C_PLAY_PAUSE	&kp C_VOL_DN			&trans				&trans				AS(LEFT_BRACKET) 	AS(RIGHT_BRACKET)	AS(BACKSLASH)
 // ├───────────────────┬───────────────────┬───────────────────┬───────────────────┬─────────────────────┬─────────────────────┬───────────────────┬───────────────────┬───────────────────┬───────────────────┤
 	&trans         		&trans          	&trans				&trans      		&trans	        		&trans      		&kp RIGHT_ALT 		&trans			 	&trans				&trans
 // ╰───────────────────┴───────────────────┴───────────────────┴───────────────────┴─────────────────────┴─────────────────────┴───────────────────┴───────────────────┴───────────────────┴───────────────────╯
