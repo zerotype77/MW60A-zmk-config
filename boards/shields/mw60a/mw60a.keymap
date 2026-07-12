@@ -74,8 +74,6 @@
 
 
 macros {
-// 일반 매크로 정의.
-
 // 현재 줄 위로 이동
 macro000: macro000 {
             compatible = "zmk,behavior-macro";
@@ -201,8 +199,7 @@ macro008: macro008 {
                 <&macro_tap &kp Y>,
                 <&macro_release &kp LCTRL>;
         };
-
-
+  };
 /*
 // DDD 우측 썸클의 NAV 키를 CTRL 대신 사용하는 매크로
 macro009: macro009 {
@@ -216,8 +213,6 @@ macro009: macro009 {
                 <&macro_release &kp LCTRL>;
         };
 */
-  };
-
 
 
 // 엔코더 정의 예시. 필요에 따라 선택하여 사용.
@@ -256,6 +251,44 @@ combos {
             bindings = <AS(TAB)>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
+
+
+        combo_sqt{
+            timeout-ms = <100>;
+            key-positions = <18 19>;    	// 'k' 키와 ';' 키의 위치 번호
+            bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+
+        combo_exc{
+            timeout-ms = <100>;
+            key-positions = <27 28>;    // '<' 키와 '>' 키의 위치 번호
+            bindings = <&kp EXCLAMATION>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
+		
+        combo_insert{
+            timeout-ms = <100>;
+            key-positions = <28 29>;    	// '.' 키와 '/' 키의 위치 번호 
+            bindings = <AS(INSERT)>;      		// INSERT  발동 
+            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+
+        combo_poweroff{
+//        combo_powertoggle{
+            timeout-ms = <100>;
+            key-positions = <9 39>;    	// P 키와 = 키의 위치 번호
+            bindings = <&ext_power EXT_POWER_OFF_CMD>;      		//   전원을 끈다
+//            bindings = <&ext_power EP_TOG>;      		//   EP_TOG: 전원을 토글(켜져 있으면 끄고, 꺼져 있으면 켭니다).
+//            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+        combo_poweron{
+            timeout-ms = <100>;
+            key-positions = <9 38>;     	// P 키와 - 키의 위치 번호
+            bindings = <&ext_power EXT_POWER_ON_CMD>;      		//   전원을 켠다.
+//            layers = <0>;               	// 0번(기본) 레이어에서만 작동
+        };
+    };
 /*  영타에서 빈번한 오타 발생에  따라 콤보를 줄이기 위함.
         compatible = "zmk,combos";
         combo_esc {
@@ -315,44 +348,6 @@ combos {
         };
 
 		*/
-
-        combo_sqt {
-            timeout-ms = <100>;
-            key-positions = <18 19>;    	// 'k' 키와 ';' 키의 위치 번호
-            bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
-            layers = <0>;               // 0번(기본) 레이어에서만 작동
-        };
-
-        combo_exc{
-            timeout-ms = <100>;
-            key-positions = <27 28>;    // '<' 키와 '>' 키의 위치 번호
-            bindings = <&kp EXCLAMATION>;     //  느낌표(exclamation mark) 발동   QMK의 LSFT(KC_1)= &kp LS(A)
-            layers = <0>;               // 0번(기본) 레이어에서만 작동
-        };
-		
-        combo_insert{
-            timeout-ms = <100>;
-            key-positions = <28 29>;    	// '.' 키와 '/' 키의 위치 번호 
-            bindings = <AS(INSERT)>;      		// INSERT  발동 
-            layers = <0>;               	// 0번(기본) 레이어에서만 작동
-        };
-
-        combo_poweroff{
-//        combo_powertoggle{
-            timeout-ms = <100>;
-            key-positions = <9 39>;    	// P 키와 = 키의 위치 번호
-            bindings = <&ext_power EXT_POWER_OFF_CMD>;      		//   전원을 끈다
-//            bindings = <&ext_power EP_TOG>;      		//   EP_TOG: 전원을 토글(켜져 있으면 끄고, 꺼져 있으면 켭니다).
-//            layers = <0>;               	// 0번(기본) 레이어에서만 작동
-        };
-        combo_poweron{
-            timeout-ms = <100>;
-            key-positions = <9 38>;     	// P 키와 - 키의 위치 번호
-            bindings = <&ext_power EXT_POWER_ON_CMD>;      		//   전원을 켠다.
-//            layers = <0>;               	// 0번(기본) 레이어에서만 작동
-        };
-    };
-
 
 
 // &as_ht LS(A) A
