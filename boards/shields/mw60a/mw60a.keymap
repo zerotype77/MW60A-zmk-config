@@ -245,14 +245,19 @@ behaviors {
 // 추후, 콤보는 최대한 줄이고, 특수문자를 <NUMBERS>레이어의 오른손으로 할당을 넘기자.
 
 combos {
-
+        compatible = "zmk,combos";
         combo_tab1{
             timeout-ms = <100>;
             key-positions = <23 33>;    // 'V' 키와 'shift' 키의 위치 번호
             bindings = <AS(TAB)>;      		// tab  발동 
             layers = <0>;               	// 0번(기본) 레이어에서만 작동
         };
-
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <24 33>;    // 'B' 키와 'shift' 키의 위치 번호
+            bindings = <&kp ESC>;       // 발동될 키: esc
+            layers = <0>;               // 0번(기본) 레이어에서만 작동
+        };
         combo_sqt{
             timeout-ms = <100>;
             key-positions = <18 19>;    	// 'k' 키와 ';' 키의 위치 번호
@@ -290,7 +295,7 @@ combos {
         };
     };
 /*  영타에서 빈번한 오타 발생에  따라 콤보를 줄이기 위함.
-        compatible = "zmk,combos";
+
         combo_esc {
             timeout-ms = <50>;
             key-positions = <1 2>;    	// 'W' 키와 'E' 키의 물리적 위치 번호
