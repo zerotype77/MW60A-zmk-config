@@ -278,7 +278,7 @@ combos {
             key-positions = <18 19>;    	// 'k' 키와 ';' 키의 위치 번호
             bindings = <AS(SQT)>;      	// 오토시프트+SINGLE_QUOTE 발동 (APOS/APOSTROPHE 가능)
             layers = <0>;               // 0번(기본) 레이어에서만 작동
-        }
+        };
 
         combo_exc{
             timeout-ms = <100>;
